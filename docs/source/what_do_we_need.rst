@@ -31,4 +31,8 @@
 
 * マウス＆キーボード
 
+<<<<<<< HEAD
     |link_pironman5| の任意のUSBポートを使用して、有線キーボードとマウス、またはワイヤレス周辺機器用のUSB Bluetoothレシーバーを接続できます。
+=======
+    Any USB port on the |link_pironman5| can be used to connect a wired keyboard and mouse, or a USB Bluetooth receiver for wireless peripherals.
+>>>>>>> 59e4e8574f993cc5db81073dcdc209a4b0d2cc67
