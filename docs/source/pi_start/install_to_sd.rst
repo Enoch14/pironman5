@@ -1,132 +1,115 @@
-.. note::
-
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
-
-    **Why Join?**
-
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
-
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
-
 .. _install_os_sd:
 
-Installing the OS on a Micro SD Card
+Micro SDカードにOSをインストールする
 ============================================================
 
+ **必要なコンポーネント** 
 
-**Required Components**
+* パーソナルコンピュータ
+* Micro SDカードとリーダー
 
-* A Personal Computer
-* A Micro SD card and Reader
+1. Raspberry Pi Imagerのインストール
+---------------------------------------------------
 
-1. Install Raspberry Pi Imager
-----------------------------------
-
-#. Visit the Raspberry Pi software download page at `Raspberry Pi Imager <https://www.raspberrypi.org/software/>`_. Choose the Imager version compatible with your operating system. Download and open the file to initiate installation.
+#. `Raspberry Pi Imager <https://www.raspberrypi.org/software/>`_ のRaspberry Piソフトウェアダウンロードページにアクセスし、使用しているオペレーティングシステムに対応するImagerバージョンを選択します。ファイルをダウンロードして開き、インストールを開始します。
 
     .. image:: img/os_install_imager.png
         :align: center
 
-#. A security prompt may appear during installation, depending on your operating system. For example, Windows might display a warning message. In such cases, select **More info** and then **Run anyway**. Follow the on-screen guidance to complete the installation of the Raspberry Pi Imager.
+#. インストール中にセキュリティプロンプトが表示される場合があります。たとえば、Windowsでは警告メッセージが表示されることがあります。その場合、 **詳細情報** を選択してから **実行** を選択します。画面の指示に従ってRaspberry Pi Imagerのインストールを完了します。
 
     .. image:: img/os_info.png
         :align: center
 
-#. Launch the Raspberry Pi Imager application by clicking its icon or typing ``rpi-imager`` in your terminal.
+#. Raspberry Pi Imagerアプリケーションを起動するには、そのアイコンをクリックするか、ターミナルで ``rpi-imager`` と入力します。
 
     .. image:: img/os_open_imager.png
         :align: center
 
-2. Install OS to Micro SD Card
---------------------------------
+2. OSをMicro SDカードにインストールする
+------------------------------------------------
 
-#. Insert your SD card into your computer or laptop using a Reader.
+#. リーダーを使用してSDカードをコンピュータまたはラップトップに挿入します。
 
-#. Within the Imager, click **Raspberry Pi Device** and select the **Raspberry Pi 5** model from the dropdown list.
+#. Imager内で、 **Raspberry Pi Device** をクリックし、ドロップダウンリストから **Raspberry Pi 5** モデルを選択します。
 
     .. image:: img/os_choose_device_pi5.png
         :align: center
 
-#. Select **Operating System** and opt for the recommended operating system version.
+#.  **Operating System** を選択し、推奨されるオペレーティングシステムバージョンを選択します。
 
     .. image:: img/os_choose_os.png
         :align: center
 
-#. Click **Choose Storage** and select the appropriate storage device for the installation.
+#.  **ストレージの選択** をクリックし、インストールする適切なストレージデバイスを選択します。
 
     .. note::
 
-        Ensure you select the correct storage device. To avoid confusion, disconnect any additional storage devices if multiple ones are connected.
+        正しいストレージデバイスを選択してください。混乱を避けるために、複数のストレージデバイスが接続されている場合は他のデバイスを取り外します。
 
     .. image:: img/os_choose_sd.png
         :align: center
 
-#. Click **NEXT** and then **EDIT SETTINGS** to tailor your OS settings. 
+#.  **NEXT** をクリックし、 **EDIT SETTINGS** をクリックしてOSの設定を調整します。
 
     .. note::
 
-        If you have a monitor for your Raspberry Pi, you can skip the next steps and click 'Yes' to begin the installation. Adjust other settings later on the monitor.
+        Raspberry Pi用のモニターがある場合は、次のステップをスキップして「Yes」をクリックしてインストールを開始できます。その他の設定は後でモニターで調整します。
 
     .. image:: img/os_enter_setting.png
         :align: center
 
-#. Define a **hostname** for your Raspberry Pi.
+#. Raspberry Piの **ホスト名** を設定します。
 
     .. note::
 
-        The hostname is your Raspberry Pi's network identifier. You can access your Pi using ``<hostname>.local`` or ``<hostname>.lan``.
+        ホスト名はRaspberry Piのネットワーク識別子です。 ``<hostname>.local`` または ``<hostname>.lan`` を使用してPiにアクセスできます。
 
     .. image:: img/os_set_hostname.png
         :align: center
 
-#. Create a **Username** and **Password** for the Raspberry Pi's administrator account.
+#. Raspberry Piの管理者アカウントの **ユーザー名** と **パスワード** を作成します。
 
     .. note::
 
-        Establishing a unique username and password is vital for securing your Raspberry Pi, which lacks a default password.
+        固有のユーザー名とパスワードを設定することは、デフォルトのパスワードがないRaspberry Piを保護するために重要です。
 
     .. image:: img/os_set_username.png
         :align: center
 
-#. Configure the wireless LAN by providing your network's **SSID** and **Password**.
+#. ワイヤレスLANの設定を行い、ネットワークの **SSID** と **パスワード** を入力します。
 
     .. note::
 
-        Set the ``Wireless LAN country`` to the two-letter `ISO/IEC alpha2 code <https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements>`_ corresponding to your location.
+        ``Wireless LAN country`` は、居住地に対応する2文字の `ISO/IEC alpha2コード <https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements>`_ に設定してください。
 
     .. image:: img/os_set_wifi.png
         :align: center
 
+#. Raspberry Piにリモート接続するために、ServicesタブでSSHを有効にします。
 
-#. To remotely connect to your Raspberry Pi, enable SSH in the Services tab.
-
-    * For **password authentication**, use the username and password from the General tab.
-    * For public-key authentication, choose "Allow public-key authentication only". If you have an RSA key, it will be used. If not, click "Run SSH-keygen" to generate a new key pair.
+    * **パスワード認証** の場合、 **General** タブのユーザー名とパスワードを使用します。
+    * 公開鍵認証の場合、「公開鍵認証のみを許可」を選択します。RSAキーがある場合、それが使用されます。ない場合は、「SSH-keygenを実行」をクリックして新しいキーを生成します。
 
     .. image:: img/os_enable_ssh.png
         :align: center
 
-#. The **Options** menu lets you configure Imager's behavior during a write, including playing sound when finished, ejecting media when finished, and enabling telemetry.
+#.  **Options** メニューでは、書き込み時のImagerの動作（完了時の音を鳴らす、メディアの取り出し、テレメトリの有効化など）を設定できます。
 
     .. image:: img/os_options.png
         :align: center
 
-    
-#. When you've finished entering OS customisation settings, click **Save** to save your customisation. Then, click **Yes** to apply them when writing the image.
+#. OSのカスタマイズ設定を入力し終えたら、 **保存** をクリックしてカスタマイズを保存します。その後、イメージを書き込む際に適用するために **Yes** をクリックします。
 
     .. image:: img/os_click_yes.png
         :align: center
 
-#. If the SD card contains existing data, ensure you back it up to prevent data loss. Proceed by clicking **Yes** if no backup is needed.
+#. SDカードに既存のデータがある場合、データ損失を防ぐためにバックアップを作成してください。バックアップが不要な場合は **Yes** をクリックして進みます。
 
     .. image:: img/os_continue.png
         :align: center
 
-#. When you see the "Write Successful" popup, your image has been completely written and verified. You're now ready to boot a Raspberry Pi from the Micro SD Card!
+#. 「Write Successful」のポップアップが表示されたら、イメージが完全に書き込まれ、検証されたことを意味します。これでMicro SDカードからRaspberry Piを起動する準備が整いました！
 
     .. image:: img/os_finish.png
         :align: center

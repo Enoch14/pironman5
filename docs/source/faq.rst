@@ -1,41 +1,26 @@
-.. note::
-
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
-
-    **Why Join?**
-
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
-
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
-
 FAQ
 ============
 
-OLED Screen Not Working?
---------------------------
+OLED画面が表示されない？
+----------------------------------
 
-If the OLED Screen is not displaying or displaying incorrectly, you can follow these steps to troubleshoot the issue:
+OLED画面が表示されない、または正しく表示されない場合、以下の手順に従って問題をトラブルシューティングしてください。
 
-Check if the FPC cable of the OLED Screen is properly connected.
+OLED画面のFPCケーブルが正しく接続されているか確認してください。
 
-#. Use the following command to view the program's run logs and check for error messages.
+#. 次のコマンドを使用してプログラムの実行ログを表示し、エラーメッセージがないか確認します。
 
     .. code-block:: shell
 
         cat /opt/pironman5/log
 
-#. Alternatively, use the following command to check if the OLED's i2c address 0x3C is recognized:
+#. または、次のコマンドを使用してOLEDのi2cアドレス0x3Cが認識されているか確認します：
     
     .. code-block:: shell
         
         sudo i2cdetect -y 1
 
-#. If the first two steps don't reveal any issues, try restarting the pironman5 service to see if that resolves the problem.
-
+#. 最初の2つの手順で問題が見つからない場合は、pironman5サービスを再起動して問題が解決するか確認します。
 
     .. code-block:: shell
 
@@ -43,31 +28,30 @@ Check if the FPC cable of the OLED Screen is properly connected.
 
 .. _openssh_powershell:
 
-Install OpenSSH via Powershell
------------------------------------
+Powershellを使ってOpenSSHをインストールする
+----------------------------------------------------
 
-When you use ``ssh <username>@<hostname>.local`` (or ``ssh <username>@<IP address>``) to connect to your Raspberry Pi, but the following error message appears.
+``ssh <username>@<hostname>.local`` （または ``ssh <username>@<IP address>`` ）を使用してRaspberry Piに接続しようとしたとき、次のエラーメッセージが表示される場合があります。
 
     .. code-block::
 
         ssh: The term 'ssh' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the
         spelling of the name, or if a path was included, verify that the path is correct and try again.
 
+これは、コンピューターのシステムが古く、 `OpenSSH <https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse?tabs=gui>`_ が事前にインストールされていないことを意味します。以下の手順に従って手動でインストールしてください。
 
-It means your computer system is too old and does not have `OpenSSH <https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse?tabs=gui>`_ pre-installed, you need to follow the tutorial below to install it manually.
-
-#. Type ``powershell`` in the search box of your Windows desktop, right click on the ``Windows PowerShell``, and select ``Run as administrator`` from the menu that appears.
+#. Windowsデスクトップの検索ボックスに ``powershell`` と入力し、 ``Windows PowerShell`` を右クリックして、表示されるメニューから ``管理者として実行`` を選択します。
 
     .. image:: img/powershell_ssh.png
         :align: center
 
-#. Use the following command to install ``OpenSSH.Client``.
+#. 次のコマンドを使用して ``OpenSSH.Client`` をインストールします。
 
     .. code-block::
 
         Add-WindowsCapability -Online -Name OpenSSH.Client~~~~0.0.1.0
 
-#. After installation, the following output will be returned.
+#. インストール後、次の出力が返されます。
 
     .. code-block::
 
@@ -75,13 +59,13 @@ It means your computer system is too old and does not have `OpenSSH <https://lea
         Online        : True
         RestartNeeded : False
 
-#. Verify the installation by using the following command.
+#. 次のコマンドを使用してインストールを確認します。
 
     .. code-block::
 
         Get-WindowsCapability -Online | Where-Object Name -like 'OpenSSH*'
 
-#. It now tells you that ``OpenSSH.Client`` has been successfully installed.
+#. これで ``OpenSSH.Client`` が正常にインストールされたことがわかります。
 
     .. code-block::
 
@@ -92,11 +76,9 @@ It means your computer system is too old and does not have `OpenSSH <https://lea
         State : NotPresent
 
     .. warning:: 
-        If the above prompt does not appear, it means that your Windows system is still too old, and you are advised to install a third-party SSH tool, like |link_putty|.
+        上記のプロンプトが表示されない場合、Windowsシステムがまだ古すぎることを意味します。 |link_putty| のようなサードパーティのSSHツールをインストールすることをお勧めします。
 
-#. Now restart PowerShell and continue to run it as administrator. At this point you will be able to log in to your Raspberry Pi using the ``ssh`` command, where you will be prompted to enter the password you set up earlier.
+#. PowerShellを再起動し、再度管理者として実行します。この時点で ``ssh`` コマンドを使用してRaspberry Piにログインできるようになり、先に設定したパスワードの入力を求められます。
 
     .. image:: img/powershell_login.png
-
-
 

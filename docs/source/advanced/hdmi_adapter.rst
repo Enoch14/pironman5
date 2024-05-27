@@ -1,43 +1,30 @@
-.. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
-
-    **Why Join?**
-
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
-
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
-
-USB HDMI Adapter
+USB HDMIアダプター
 ==========================================
 
 .. image:: img/hdmi_adapter.jpeg
 
-This USB HDMI adapter board is specifically designed for the Raspberry Pi 5. Its primary function is to reposition the USB and HDMI connections to align with the USB interface side of the Raspberry Pi, enhancing accessibility and cable management.
+このUSB HDMIアダプターボードは、Raspberry Pi 5専用に設計されています。主な機能は、USBおよびHDMI接続をUSBインターフェース側に位置合わせすることで、アクセス性とケーブル管理を向上させることです。
 
-Additionally, the HDMI port is converted to a standard HDMI Type A interface, offering broader compatibility.
+さらに、HDMIポートは標準のHDMI Type Aインターフェースに変換され、より広い互換性を提供します。
 
-**NVMe Additional Power Supply**
+ **NVMe追加電源供給** 
 
-The board features a 5V power header specifically for NVMe PIP power supply. Coupled with an extension header, it can be connected to the NVMe's additional power interface to provide extra power.
+このボードには、NVMe PIP電源供給用の5V電源ヘッダーがあります。拡張ヘッダーと組み合わせることで、NVMeの追加電源インターフェースに接続し、追加の電力を供給できます。
 
-**1220RTC Battery Holder**
+ **1220RTCバッテリーホルダー** 
 
-A 1220RTC battery holder is incorporated for convenient installation of an RTC battery. It connects to the Raspberry Pi's RTC interface via an SH1.0 2P reverse cable. 
+1220RTCバッテリーホルダーが組み込まれており、RTCバッテリーの取り付けが簡単です。SH1.0 2P逆ケーブルを介して、Raspberry PiのRTCインターフェースに接続します。
 
-The battery holder is compatible with both CR1220 and ML1220 batteries. If using an ML1220 (Lithium Manganese Dioxide battery), charging can be configured directly on the Raspberry Pi. Note that the CR1220 is not rechargeable.
+このバッテリーホルダーは、CR1220およびML1220バッテリーの両方に対応しています。ML1220（リチウムマンガン電池）を使用する場合、Raspberry Piで直接充電を設定できます。なお、CR1220は充電不可です。
 
-**Enabling Trickle Charging**
+ **トリクル充電の有効化** 
 
 .. warning::
 
-  If you're using a CR1220 battery, do not enable trickle charging as it can cause irreparable damage to the battery and risk damaging the board.
+  CR1220バッテリーを使用している場合、トリクル充電を有効にしないでください。バッテリーに修復不可能な損傷を与え、ボードを損傷する危険性があります。
 
-By default, the trickle charging feature for the battery is disabled. The ``sysfs`` files indicate the current trickle charging voltage and limits:
+デフォルトでは、バッテリーのトリクル充電機能は無効になっています。 ``sysfs`` ファイルには、現在のトリクル充電電圧と制限が示されています：
 
 .. code-block:: shell
 
@@ -48,21 +35,21 @@ By default, the trickle charging feature for the battery is disabled. The ``sysf
     pi@raspberrypi:~ $ cat /sys/devices/platform/soc/soc:rpi_rtc/rtc/rtc0/charging_voltage_min
     1300000
 
-To enable trickle charging, add ``rtc_bbat_vchg`` to ``/boot/firmware/config.txt``:
+トリクル充電を有効にするには、 ``/boot/firmware/config.txt`` に ``rtc_bbat_vchg`` を追加します：
 
-  * Open the ``/boot/firmware/config.txt``.
+  * ``/boot/firmware/config.txt`` を開きます。
   
     .. code-block:: shell
     
       sudo nano /boot/firmware/config.txt
       
-  * Add ``rtc_bbat_vchg`` to ``/boot/firmware/config.txt``.
+  * ``/boot/firmware/config.txt`` に ``rtc_bbat_vchg`` を追加します。
   
     .. code-block:: shell
     
       dtparam=rtc_bbat_vchg=3000000
   
-After rebooting, the system will display:
+再起動後、システムは次のように表示されます：
 
 .. code-block:: shell
 
@@ -73,5 +60,4 @@ After rebooting, the system will display:
     pi@raspberrypi:~ $ cat /sys/devices/platform/soc/soc:rpi_rtc/rtc/rtc0/charging_voltage_min
     1300000
 
-This confirms the battery is now under trickle charging. To disable this feature, simply remove the ``dtparam`` line from ``config.txt``.
-
+これでバッテリーがトリクル充電されていることが確認できます。この機能を無効にするには、 ``config.txt`` から ``dtparam`` 行を削除するだけです。

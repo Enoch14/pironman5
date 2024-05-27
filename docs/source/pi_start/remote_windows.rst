@@ -1,28 +1,14 @@
-.. note::
-
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
-
-    **Why Join?**
-
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
-
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
-
-For Windows Users
+Windowsユーザー向け
 =======================
 
-For Windows 10 or higher users, remote login to a Raspberry Pi can be achieved through the following steps:
+Windows 10以降のユーザーがRaspberry Piにリモートログインするには、以下の手順に従ってください：
 
-#. Search for ``powershell`` in your Windows search box. Right-click on ``Windows PowerShell`` and select ``Run as administrator``.
+#. Windowsの検索ボックスに ``powershell`` を入力します。 ``Windows PowerShell`` を右クリックし、 ``管理者として実行`` を選択します。
 
     .. image:: img/powershell_ssh.png
         :align: center
 
-#. Determine your Raspberry Pi's IP address by typing ``ping -4 <hostname>.local`` in PowerShell.
+#. PowerShellで ``ping -4 <hostname>.local`` と入力して、Raspberry PiのIPアドレスを確認します。
 
     .. code-block::
 
@@ -32,12 +18,12 @@ For Windows 10 or higher users, remote login to a Raspberry Pi can be achieved t
         :width: 550
         :align: center
 
-    The Raspberry Pi's IP address will be displayed once it's connected to the network.
+    Raspberry Piがネットワークに接続されている場合、そのIPアドレスが表示されます。
 
-    * If the terminal displays ``Ping request could not find host pi.local. Please check the name and try again.``, verify the hostname you've entered is correct.
-    * If the IP address still isn't retrievable, check your network or WiFi settings on the Raspberry Pi.
+    * ターミナルに ``Ping request could not find host pi.local. Please check the name and try again.`` と表示された場合、入力したホスト名が正しいか確認してください。
+    * IPアドレスが取得できない場合、Raspberry PiのネットワークまたはWiFi設定を確認してください。
 
-#. Once the IP address is confirmed, log in to your Raspberry Pi using ``ssh <username>@<hostname>.local`` or ``ssh <username>@<IP address>``.
+#. IPアドレスが確認できたら、 ``ssh <username>@<hostname>.local`` または ``ssh <username>@<IP address>`` を使用してRaspberry Piにログインします。
 
     .. code-block::
 
@@ -45,9 +31,9 @@ For Windows 10 or higher users, remote login to a Raspberry Pi can be achieved t
 
     .. warning::
 
-        If an error appears stating ``The term 'ssh' is not recognized as the name of a cmdlet...``, your system may not have SSH tools pre-installed. In this case, you need to manually install OpenSSH following :ref:`openssh_powershell`, or use a third-party tool like |link_putty|.
+        ``The term 'ssh' is not recognized as the name of a cmdlet...`` というエラーが表示された場合、システムにSSHツールがプリインストールされていない可能性があります。その場合は、手動でOpenSSHをインストールするか、 |link_putty| のようなサードパーティツールを使用してください。
 
-#. A security message will appear on your first login. Enter ``yes`` to proceed.
+#. 初回ログイン時にセキュリティメッセージが表示されます。続行するには ``yes`` と入力します。
 
     .. code-block::
 
@@ -55,13 +41,14 @@ For Windows 10 or higher users, remote login to a Raspberry Pi can be achieved t
         ED25519 key fingerprint is SHA256:oo7x3ZSgAo032wD1tE8eW0fFM/kmewIvRwkBys6XRwg.
         Are you sure you want to continue connecting (yes/no/[fingerprint])?
 
-#. Enter the password you previously set. Note that the password characters won't be displayed on the screen, which is a standard security feature.
+#. 以前に設定したパスワードを入力します。入力中にパスワードが画面に表示されないことに注意してください。これは標準的なセキュリティ機能です。
 
     .. note::
-        The absence of visible characters when typing the password is normal. Ensure you input the correct password.
+        パスワードを入力しても文字が表示されないのは正常です。正しいパスワードを入力してください。
 
-#. Once connected, your Raspberry Pi is ready for remote operations.
+#. 接続が確立されると、Raspberry Piがリモート操作の準備が整います。
 
     .. image:: img/sp221221_140628.png
         :width: 550
         :align: center
+

@@ -1,31 +1,19 @@
-.. note::
-
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
-
-    **Why Join?**
-
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
-
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
 
 .. _assembly_instructions:
 
-2. Assembly Instructions
+2. 組み立て手順
 =============================================
 
-Before assembling the Pironman, please first verify that all parts and components have been included. If there are any missing or damaged components, please contact SunFounder immediately at service@sunfounder.com to resolve the issue as soon as possible.
+Pironmanを組み立てる前に、すべての部品とコンポーネントが揃っていることを確認してください。欠品や損傷がある場合は、すぐにSunFounder（service@sunfounder.com）に連絡し、問題を早急に解決してください。
 
-**Tips**
+**ヒント**
 
-* It is recommended to follow the paper installation instructions step by step.
-* Before installation, sort and stack the components to find them more quickly.
-* Repeatedly check the connections of FFC and FPC cables to avoid poor contact.
+* 紙のインストール手順に従って、ステップバイステップで進めることをお勧めします。
+* 組み立ての前に、部品を整理して積み重ね、素早く見つけられるようにします。
+* FFCおよびFPCケーブルの接続を繰り返し確認し、接触不良を避けてください。
 
-* :download:`[PDF]Component List and Assembly of Pironman 5 <https://github.com/sunfounder/sf-pdf/raw/master/assembly_file/z0312V10-a0001127-pironman5.pdf>`
+* :download:`[PDF] Pironman 5の部品リストと組み立て手順 <https://github.com/sunfounder/sf-pdf/raw/master/assembly_file/z0312V10-a0001127-pironman5.pdf>`
+
 
 .. **Assemble Tutorial Video**
 

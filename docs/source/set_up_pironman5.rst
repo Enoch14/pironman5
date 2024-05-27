@@ -1,54 +1,40 @@
-.. note::
-
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
-
-    **Why Join?**
-
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
-
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
-
 .. _set_up_pironman5:
 
-5. Set up Pironman 5
+5. Pironman 5のセットアップ
 ===================================
 
-Before Configuration
+設定前の準備
 -----------------------
-After powering on, you will only see the various power LEDs lit up, but the OLED screen (if there is a screen garbling issue, please ignore it as it will resolve after configuration), RGB LEDs, and RGB fans (the two fans on the side) are not yet functional because they have not been configured.
+電源を入れた後は、各種の電源LEDが点灯しているだけで、OLED画面（画面の乱れがある場合は、設定後に解決されるため無視してください）、RGB LED、RGBファン（側面の2つのファン）はまだ動作しません。これらは設定が必要です。
 
-The power button brings out the power button of the Raspberry Pi 5, and it functions just like the power button of the Raspberry Pi 5.
+電源ボタンはRaspberry Pi 5の電源ボタンと同様の機能を持ちます。
 
-**Shutdown**
+ **シャットダウン** 
 
-    * If you run Raspberry Pi **Bookworm Desktop** system, you can press the power button twice in quick succession to shutdown. 
-    * If you run Raspberry Pi **Bookworm Lite** system, press the power button a single time to initiate a shutdown.
-    * To force a hard shutdown, press and hold the power button.
+    * Raspberry Pi  **Bookworm Desktop** システムを使用している場合、電源ボタンを素早く2回押すとシャットダウンします。
+    * Raspberry Pi  **Bookworm Lite** システムを使用している場合、電源ボタンを1回押すとシャットダウンが開始されます。
+    * 強制シャットダウンを行うには、電源ボタンを押し続けます。
 
-**Power on**
+ **電源オン** 
 
-    * If the Raspberry Pi board is shut down, but still powered, single-press to power on from a shutdown state.
+    * Raspberry Piボードがシャットダウンされているが、まだ電源が供給されている場合、1回押すとシャットダウン状態から電源がオンになります。
 
 .. note::
 
-    If you are running a system that does not support a shutdown button, you can hold it for 5 seconds to force a hard shutdown, and single-press to power on from a shutdown state.
+    シャットダウンボタンをサポートしていないシステムを使用している場合、5秒間押し続けると強制シャットダウンが行われ、1回押してシャットダウン状態から電源をオンにできます。
 
 
-Configuring Shutdown to Deactivate GPIO Power
+GPIO電源を無効にするためのシャットダウンの設定
 ------------------------------------------------------------
-To prevent the OLED screen and RGB fans, powered by the Raspberry Pi GPIO, from remaining active post-shutdown, it's essential to configure the Raspberry Pi for GPIO power deactivation.
+Raspberry PiのGPIOで電源供給されるOLED画面やRGBファンがシャットダウン後も動作し続けないようにするために、GPIO電源無効化の設定が必要です。
 
-* Manually edit the ``EEPROM`` configuration file with this command:
+* 次のコマンドを使用して ``EEPROM`` 設定ファイルを手動で編集します：
 
   .. code-block:: shell
 
     sudo rpi-eeprom-config -e
 
-* Modify the ``POWER_OFF_ON_HALT`` setting in the file to ``1``. For instance:
+* ファイル内の ``POWER_OFF_ON_HALT`` 設定を ``1`` に変更します。例えば：
 
   .. code-block:: shell
 
@@ -57,12 +43,12 @@ To prevent the OLED screen and RGB fans, powered by the Raspberry Pi GPIO, from 
     BOOT_ORDER=0xf41
 
 
-Downloading and Installing the ``pironman5`` Module
+``pironman5`` モジュールのダウンロードとインストール
 -----------------------------------------------------------
 
 .. note::
 
-  For lite systems, initially install tools like ``git``, ``python3``, ``pip3``, ``setuptools``, etc.
+  Liteシステムの場合、最初に ``git``、 ``python3``、 ``pip3``、 ``setuptools`` などのツールをインストールしてください。
   
   .. code-block:: shell
   
@@ -70,7 +56,7 @@ Downloading and Installing the ``pironman5`` Module
     sudo apt-get install git -y
     sudo apt-get install python3 python3-pip python3-setuptools -y
 
-Proceed to download code from GitHub and install the ``pironman5`` module .
+GitHubからコードをダウンロードし、 ``pironman5`` モジュールをインストールします。
 
 .. code-block:: shell
 
@@ -79,27 +65,25 @@ Proceed to download code from GitHub and install the ``pironman5`` module .
   cd ~/pironman5
   sudo python3 install.py
 
-After successful installation, a system reboot is required to activate the installation. Follow the on-screen reboot prompt.
+インストールが成功した後、インストールを有効にするためにシステムの再起動が必要です。画面の再起動プロンプトに従ってください。
 
-Upon reboot, the ``pironman5.service`` will start automatically. Here are the primary configurations for |link_pironman5|:
+再起動後、 ``pironman5.service`` が自動的に開始されます。以下は、 |link_pironman5| の主な設定内容です：
 
-  * The OLED screen displays CPU, RAM, Disk Usage, CPU Temperature, and the Raspberry Pi's IP Address.
-  * Four WS2812 RGB LEDs will light up in blue with a breathing mode.
-  * 
+  * OLED画面には、CPU、RAM、ディスク使用量、CPU温度、Raspberry PiのIPアドレスが表示されます。
+  * 4つのWS2812 RGB LEDが青色のブリージングモードで点灯します。
 
-You can use the ``systemctl`` tool to ``start``, ``stop``, ``restart``, or check the ``status`` of ``pironman5.service``.
+``systemctl`` ツールを使用して、 ``pironman5.service`` の ``start``、 ``stop``、 ``restart``、または ``status`` を確認できます。
 
 .. code-block:: shell
 
   sudo systemctl restart pironman5.service
 
-* ``restart``: Use this command to apply any changes made to the settings of pironman 5.
-* ``start/stop``: Enable or disable the ``pironman5.service``.
-* ``status``: Check the operational status of the ``pironman5`` program using the ``systemctl`` tool.
+* ``restart``: Pironman 5の設定変更を適用するために使用します。
+* ``start/stop``: ``pironman5.service`` を有効または無効にします。
+* ``status``: ``systemctl`` ツールを使用して ``pironman5`` プログラムの動作状態を確認します。
 
 .. note::
 
-  * Next, you can view and control the components of |link_pironman5| from dashboard, please refer to :ref:`view_control_dashboard`.
-  * If you wish to use commands, please see :ref:`view_control_commands`.
-
+  * 次に、ダッシュボードから |link_pironman5| のコンポーネントを表示および制御できます。詳細については :ref:`view_control_dashboard` を参照してください。
+  * コマンドを使用したい場合は、 :ref:`view_control_commands` を参照してください。
 

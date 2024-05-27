@@ -1,48 +1,35 @@
-.. note::
-
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
-
-    **Why Join?**
-
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
-
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
 
 .. _boot_from_ssd:
 
-Booting from NVMe SSD
+NVMe SSDからの起動
 =============================
 
-1. Enabling PCIe
+1. PCIeの有効化
 --------------------
 
-By default the PCIe connector is not enabled. 
+デフォルトではPCIeコネクタは有効になっていません。
 
-* To enable it you should open the ``/boot/firmware/config.txt`` file.
+* 有効にするには、 ``/boot/firmware/config.txt`` ファイルを開きます。
 
   .. code-block:: shell
   
     sudo nano /boot/firmware/config.txt
   
-* Then add the following line to the file. 
+* 次に、以下の行をファイルに追加します。
 
   .. code-block:: shell
   
     # Enable the PCIe External connector.
     dtparam=pciex1
   
-* A more memorable alias for ``pciex1`` exists, so you can alternatively add ``dtparam=nvme`` to the ``/boot/firmware/config.txt`` file.
+* ``pciex1`` のより覚えやすい別名が存在するので、代わりに ``dtparam=nvme`` を ``/boot/firmware/config.txt`` ファイルに追加することもできます。
 
   .. code-block:: shell
   
     dtparam=nvme
 
 
-* The connection is certified for Gen 2.0 speeds (5 GT/sec), but you can force it to Gen 3.0 (10 GT/sec) if you add the following lines to your ``/boot/firmware/config.txt``.
+* Gen 2.0の速度（5 GT/秒）で認証されていますが、以下の行を追加することでGen 3.0（10 GT/秒）に強制できます。
 
   .. code-block:: shell
   
@@ -51,176 +38,172 @@ By default the PCIe connector is not enabled.
   
   .. warning::
   
-    The Raspberry Pi 5 is not certified for Gen 3.0 speeds, and connections to PCIe devices at these speeds may be unstable.
+    Raspberry Pi 5はGen 3.0の速度で認証されておらず、この速度でPCIeデバイスに接続すると不安定になる可能性があります。
 
-* Press ``Ctrl + X``, ``Y`` and ``Enter`` to save the changes.
+* 変更を保存するには、「Ctrl + X」、「Y」、「Enter」を押します。
 
-3. Configure boot from the SSD
+3. SSDからのブートを設定
 ---------------------------------------
 
-
-* To update the firmware on your Raspberry Pi to the latest version, use ``rpi-update``.
+* Raspberry Piのファームウェアを最新バージョンに更新するには、 ``rpi-update`` を使用します。
 
 .. code-block:: shell
 
     sudo rpi-update
 
-* To enable boot support, you need to change the ``BOOT_ORDER`` in the bootloader configuration. Edit the EEPROM configuration by:
+* ブートサポートを有効にするには、ブートローダー設定の ``BOOT_ORDER`` を変更する必要があります。EEPROM設定を編集します：
 
 .. code-block::
   
     sudo rpi-eeprom-config --edit
   
-* Then, change the ``BOOT_ORDER`` line to be as below. ``0xf416``: Try NVMe SSD first, followed USB and then SD Card.
+* 次に、 ``BOOT_ORDER`` の行を以下のように変更します。 ``0xf416``: 最初にNVMe SSDを試し、次にUSB、その後SDカード。
 
 .. code-block:: shell
   
     BOOT_ORDER=0xf146
 
-The ``BOOT_ORDER`` setting allows flexible configuration for the priority of different boot modes. It is represented as a 32-bit unsigned integer where each nibble represents a boot-mode. The boot modes are attempted in lowest significant nibble to highest significant nibble order.
-The ``BOOT_ORDER`` property defines the sequence for the different boot modes. It is read right to left, and up to eight digits may be defined.
+* ``BOOT_ORDER`` 設定は、異なるブートモードの優先順位を柔軟に設定できます。32ビットの符号なし整数として表され、各ニブルがブートモードを表します。ブートモードは、最も重要でないニブルから最も重要なニブルの順に試みられます。
+* ``BOOT_ORDER`` プロパティは、異なるブートモードのシーケンスを定義します。右から左に読み、最大8桁を定義できます。
 
 .. image:: img/boot_order.png
     :align: center
 
-* ``0xf41``: Try SD first, followed by USB-MSD then repeat (default if ``BOOT_ORDER`` is empty)
-* ``0xf14``: Try USB first, followed by SD then repeat
+* ``0xf41``: 最初にSDを試し、次にUSB-MSD、それを繰り返します（`` BOOT_ORDER``が空の場合のデフォルト）
+* ``0xf14``: 最初にUSBを試し、次にSD、それを繰り返します
 
-* Once the update is complete, reboot your Raspberry Pi for these changes to take effect.
+* 更新が完了したら、これらの変更を有効にするためにRaspberry Piを再起動します。
 
 .. code-block:: shell
 
     sudo reboot
 
-4. Install the OS on the SSD
+4. SSDにOSをインストール
 ----------------------------------------
 
-There are two ways to install an operating system on the SSD:
+SSDにオペレーティングシステムをインストールする方法は2つあります：
 
-**Copying the System from the Micro SD Card to the SSD**
+ **Micro SDカードからSSDへのシステムのコピー** 
 
-#. Connect a display or access the Raspberry Pi desktop through VNC Viewer. Then click **Raspberry Pi logo** -> **Accessories** -> **SD Card Copier**.
+#. ディスプレイを接続するか、VNC ViewerでRaspberry Piのデスクトップにアクセスします。次に、 **Raspberry Piのロゴ** -> **アクセサリ ** -> ** SDカードコピー機** をクリックします。
 
     .. image:: img/ssd_copy.png
         :align: center
     
-#. Make sure to select the correct **Copy From** and **Copy To** devices. Be careful not to mix them up.
+#. 正しい **コピー元** と **コピー先** デバイスを選択してください。それらを間違えないよう注意してください。
 
     .. image:: img/ssd_copy_from.png
         :align: center
     
-#. After selection, click **Start**.
+#. 選択後、 **開始** をクリックします。
 
     .. image:: img/ssd_copy_start.png
         :align: center
     
-#. You will be prompted that the content on the SSD will be erased. Make sure to back up your data before clicking Yes.
+#. SSDの内容が消去されることが確認されます。Yesをクリックする前に、データをバックアップしてください。
 
     .. image:: img/ssd_copy_erase.png
         :align: center
     
-#. Wait for some time, and the copying will be completed.
+#. しばらく待つと、コピーが完了します。
 
+ **Raspberry Pi Imagerを使用したシステムのインストール** 
 
-**Installing the System with Raspberry Pi Imager**
+Micro SDカードにデスクトップバージョンのシステムがインストールされている場合、イメージツール（Raspberry Pi Imagerなど）を使用してSSDにシステムを焼くことができます。この例ではRaspberry Pi OS bookwormを使用していますが、他のシステムではまずイメージングツールをインストールする必要があるかもしれません。
 
-If your Micro SD card has a desktop version of the system installed, you can use an imaging tool (like Raspberry Pi Imager) to burn the system to the SSD. This example uses Raspberry Pi OS bookworm, but other systems might require installing the imaging tool first.
-
-#. Connect a display or access the Raspberry Pi desktop through VNC Viewer. Then click **Raspberry Pi logo** -> **Accessories** -> **Imager**.
+#. ディスプレイを接続するか、VNC Viewerを通じてRaspberry Piのデスクトップにアクセスします。次に、 **Raspberry Piロゴ** -> **アクセサリ** -> **イメージャー** をクリックします。
 
     .. image:: img/ssd_imager.png
         :align: center
     
-#. Within the Imager, click **Raspberry Pi Device** and select the **Raspberry Pi 5** model from the dropdown list.
+#. イメージャー内で、 **Raspberry Piデバイス** をクリックし、ドロップダウンリストから **Raspberry Pi 5** モデルを選択します。
 
     .. image:: img/ssd_pi5.png
         :align: center
     
-#. Select **Operating System** and opt for the recommended operating system version.
+#.  **オペレーティングシステム** を選択し、推奨されるオペレーティングシステムバージョンを選択します。
 
     .. image:: img/ssd_os.png
         :align: center
     
-#. In the **Storage** option, select your inserted NVMe SSD.
+#.  **ストレージ** オプションで、挿入されたNVMe SSDを選択します。
 
     .. image:: img/nvme_storage.png
         :align: center
     
-#. Click **NEXT** and then **EDIT SETTINGS** to tailor your OS settings. 
+#.  **次へ** をクリックし、その後 **設定の編集** をクリックして、OSの設定をカスタマイズします。
 
     .. note::
 
-        If you have a monitor for your Raspberry Pi, you can skip the next steps and click 'Yes' to begin the installation. Adjust other settings later on the monitor.
+        Raspberry Piにモニターがある場合は、次のステップをスキップして「はい」をクリックし、インストールを開始できます。その後、モニターで他の設定を調整します。
 
     .. image:: img/os_enter_setting.png
         :align: center
 
-#. Define a **hostname** for your Raspberry Pi.
+#. Raspberry Piの **ホスト名** を定義します。
 
     .. note::
 
-        The hostname is your Raspberry Pi's network identifier. You can access your Pi using ``<hostname>.local`` or ``<hostname>.lan``.
+        ホスト名はRaspberry Piのネットワーク識別子です。 ``<hostname>.local`` または ``<hostname>.lan`` を使用してPiにアクセスできます。
 
     .. image:: img/os_set_hostname.png
         :align: center
 
-#. Create a **Username** and **Password** for the Raspberry Pi's administrator account.
+#. Raspberry Piの管理者アカウントの **ユーザー名** と **パスワード** を作成します。
 
     .. note::
 
-        Establishing a unique username and password is vital for securing your Raspberry Pi, which lacks a default password.
+        デフォルトパスワードがないため、一意のユーザー名とパスワードを設定することでRaspberry Piを保護することが重要です。
 
     .. image:: img/os_set_username.png
         :align: center
 
-#. Configure the wireless LAN by providing your network's **SSID** and **Password**.
+#. ワイヤレスLANを設定するために、ネットワークの **SSID** と **パスワード** を入力します。
 
     .. note::
 
-        Set the ``Wireless LAN country`` to the two-letter `ISO/IEC alpha2 code <https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements>`_ corresponding to your location.
+        ``Wireless LAN country`` を、あなたの場所に対応する二文字の`ISO/IEC alpha2コード `<https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements>`_ に設定します。
 
     .. image:: img/os_set_wifi.png
         :align: center
 
 
-#. To remotely connect to your Raspberry Pi, **enable SSH** in the **Services** tab.
+#. Raspberry Piにリモートで接続するには、 **サービス** タブで **SSH** を有効にします。
 
-    * For **password authentication**, use the username and password from the **General** tab.
-    * For public-key authentication, choose "Allow public-key authentication only". If you have an RSA key, it will be used. If not, click "Run SSH-keygen" to generate a new key pair.
+    * **パスワード認証** の場合、 **一般** タブからユーザー名とパスワードを使用します。
+    * 公開キー認証のみを許可する場合は「公開キー認証のみを許可する」を選択します。RSAキーがあればそれを使用します。ない場合は「SSH-keygenを実行」をクリックして新しいキーペアを生成します。
 
     .. image:: img/os_enable_ssh.png
         :align: center
 
-#. The **Options** menu lets you configure Imager's behavior during a write, including playing sound when finished, ejecting media when finished, and enabling telemetry.
+#.  **オプション** メニューでは、書き込み時のImagerの動作を設定できます。これには、完了時に音を鳴らす、メディアを排出する、テレメトリを有効にするなどが含まれます。
 
     .. image:: img/os_options.png
         :align: center
 
     
-#. When you've finished entering OS customisation settings, click **Save** to save your customisation. Then, click **Yes** to apply them when writing the image.
+#. OSカスタマイズ設定の入力が完了したら、 **保存** をクリックしてカスタマイズを保存します。その後、イメージ書き込み時にそれらを適用するために「はい」をクリックします。
 
     .. image:: img/os_click_yes.png
         :align: center
 
-#. If the NVMe SSD contains existing data, ensure you back it up to prevent data loss. Proceed by clicking **Yes** if no backup is needed.
+#. NVMe SSDに既存のデータがある場合、データ損失を防ぐためにバックアップしてください。バックアップが不要な場合は「はい」をクリックして進みます。
 
     .. image:: img/nvme_erase.png
         :align: center
 
-#. When you see the "Write Successful" popup, your image has been completely written and verified. You're now ready to boot a Raspberry Pi from the NVMe SSD!
+#. 「書き込み成功」というポップアップが表示されたら、イメージが完全に書き込まれて検証されたことを意味します。これでNVMe SSDからRaspberry Piを起動する準備ができました！
 
     .. image:: img/nvme_install_finish.png
         :align: center
 
 
 
-**5. Restart Pironman 5**
+**5. Pironman 5の再起動** 
 --------------------------------
 
-After restarting the |link_pironman5|, it will boot from the SSD.
+Pironman 5を再起動すると、SSDから起動します。
 
   .. code-block:: shell
 
     sudo reboot
-
-

@@ -1,47 +1,32 @@
-.. note::
-
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
-
-    **Why Join?**
-
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
-
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
-
-Features
+特徴
 ======================
 
-**Parameters**
+ **パラメータ** 
 
-* Dimension: 111.9x78.5x117mm
-* Material
-    * Main body: aluminum alloy
-    * Two side panel: acrylic
-* Support Platform: Raspberry Pi 5B
-* Power Input: USB Type C, 5V/5A
-* Interfaces
-    * Raspberry Pi standard 40-Pin GPIO
-    * spring-loaded Micro SD socket
-    * USB Type C power input
-    * 2 x USB 2.0
-    * 2 x USB 3.0
-    * Gigabit LAN port
-    * 2 x 4Kp60 HDMI Type A
-* Metal Power button
-* OLED screen: 0.96'' 128x64 resolution
-* 1 x PWM Fan, 2 x RGB Fans: 40x40x10mm
-* 4 x WS2812-5050 RGB LED
-* 38KHz IR Receiver
-* Tower Cooler
-* PCIe 3.0 x1 M.2 M key 2230, 2242, 2260, 2280 for NVMe SSD
-* 1220 Battery for RTC
+* 寸法: 111.9x78.5x117mm
+* 材質
+    * 本体: アルミ合金
+    * 両側パネル: アクリル
+* 対応プラットフォーム: Raspberry Pi 5B
+* 電源入力: USB Type C, 5V/5A
+* インターフェース
+    * Raspberry Pi標準40ピンGPIO
+    * スプリング式Micro SDソケット
+    * USB Type C電源入力
+    * USB 2.0 x 2
+    * USB 3.0 x 2
+    * ギガビットLANポート
+    * 4Kp60対応HDMI Type A x 2
+* メタル電源ボタン
+* OLEDスクリーン: 0.96インチ、解像度128x64
+* PWMファン x 1、RGBファン x 2: 40x40x10mm
+* WS2812-5050 RGB LED x 4
+* 38KHz赤外線受信機
+* タワークーラー
+* NVMe SSD用PCIe 3.0 x1 M.2 Mキー 2230、2242、2260、2280対応
+* RTC用1220バッテリー
 
-**Dimensional Drawing**
+ **寸法図** 
 
 .. image:: img/pironman5_dimension.png
     :width: 800
-

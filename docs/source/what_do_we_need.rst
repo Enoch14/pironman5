@@ -1,48 +1,34 @@
-.. note::
-
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
-
-    **Why Join?**
-
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
-
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
-
-1. What Else Should We Prepare?
+1. その他に準備するものは？
 ===================================
 
-**Essential Components**
+ **必須コンポーネント** 
 
 * Raspberry Pi 5 Model B
 
-    The |link_pironman5| is fully compatible with the Raspberry Pi 5 Model B.
+    |link_pironman5| はRaspberry Pi 5 Model Bに完全対応しています。
 
-* 5V/5A Power Adapter
+* 5V/5A電源アダプター
 
-    A 5V/5A power adapter is required to power the |link_pironman5| and its components.
+    |link_pironman5| およびそのコンポーネントに電力を供給するには、5V/5Aの電源アダプターが必要です。
 
-* Micro SD Card
+* Micro SDカード
  
-    It is recommended to use an SD card with a minimum of 16GB of storage for Raspberry Pi OS. For Raspberry Pi OS Lite, a minimum of 4GB is advised.
+    Raspberry Pi OSには最低16GBのストレージを持つSDカードを使用することをお勧めします。Raspberry Pi OS Liteの場合は、最低4GBが推奨されます。
 
-**Optional Components**
+ **オプションコンポーネント** 
 
 * M.2 NVMe SSD
 
-    The |link_pironman5| features an NVMe PIP with an M.2 SSD connector, accommodating four NVMe M.2 SSD sizes: 2230, 2242, 2260, and 2280. It supports both PCIE2.0 and PCIE 3.0 NVMe M.2 SSDs.
+    |link_pironman5| にはM.2 SSDコネクタを備えたNVMe PIPがあり、2230、2242、2260、2280の4種類のNVMe M.2 SSDサイズに対応しています。この接続はGen 2.0速度（5 GT/sec）に認定されていますが、より高速なパフォーマンスを得るためにGen 3.0（10 GT/sec）に強制することもできます。
 
-* Screen
+* スクリーン
 
-    To access the Raspberry Pi's desktop environment, a screen such as a TV or a computer monitor is required.
+    Raspberry Piのデスクトップ環境にアクセスするには、テレビやコンピューターモニターなどのスクリーンが必要です。
     
-* HDMI Cable
+* HDMIケーブル
 
-    The Raspberry Pi 5's HDMI ports have been adapted to standard HDMI Type A interfaces via a USB HDMI adapter. Therefore, a standard HDMI to HDMI cable is needed to connect the |link_pironman5| to a display.
+    Raspberry Pi 5のHDMIポートはUSB HDMIアダプターを介して標準のHDMI Type Aインターフェースに適応されています。したがって、|link_pironman5| をディスプレイに接続するには、標準のHDMI to HDMIケーブルが必要です。
 
-* Mouse & Keyboard
+* マウス＆キーボード
 
-    Any USB port on the |link_pironman5| can be used to connect a wired keyboard and mouse, or a USB Bluetooth receiver for wireless peripherals.
+    |link_pironman5| の任意のUSBポートを使用して、有線キーボードとマウス、またはワイヤレス周辺機器用のUSB Bluetoothレシーバーを接続できます。
