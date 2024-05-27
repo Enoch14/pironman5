@@ -1,7 +1,21 @@
+.. note::
+
+    こんにちは、SunFounderのRaspberry Pi & Arduino & ESP32愛好家コミュニティへようこそ！Facebook上でRaspberry Pi、Arduino、ESP32についてもっと深く掘り下げ、他の愛好家と交流しましょう。
+
+    **参加する理由は？**
+
+    - **エキスパートサポート**：コミュニティやチームの助けを借りて、販売後の問題や技術的な課題を解決します。
+    - **学び＆共有**：ヒントやチュートリアルを交換してスキルを向上させましょう。
+    - **独占的なプレビュー**：新製品の発表や先行プレビューに早期アクセスしましょう。
+    - **特別割引**：最新製品の独占割引をお楽しみください。
+    - **祭りのプロモーションとギフト**：ギフトや祝日のプロモーションに参加しましょう。
+
+    👉 私たちと一緒に探索し、創造する準備はできていますか？[|link_sf_facebook|]をクリックして今すぐ参加しましょう！
+
 1. その他に準備するものは？
 ===================================
 
- **必須コンポーネント** 
+**必須コンポーネント**
 
 * Raspberry Pi 5 Model B
 
@@ -15,7 +29,7 @@
  
     Raspberry Pi OSには最低16GBのストレージを持つSDカードを使用することをお勧めします。Raspberry Pi OS Liteの場合は、最低4GBが推奨されます。
 
- **オプションコンポーネント** 
+**オプションコンポーネント**
 
 * M.2 NVMe SSD
 
@@ -31,8 +45,4 @@
 
 * マウス＆キーボード
 
-<<<<<<< HEAD
     |link_pironman5| の任意のUSBポートを使用して、有線キーボードとマウス、またはワイヤレス周辺機器用のUSB Bluetoothレシーバーを接続できます。
-=======
-    Any USB port on the |link_pironman5| can be used to connect a wired keyboard and mouse, or a USB Bluetooth receiver for wireless peripherals.
->>>>>>> 59e4e8574f993cc5db81073dcdc209a4b0d2cc67
