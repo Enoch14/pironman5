@@ -1,41 +1,40 @@
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Hallo und willkommen in der SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasten-Gemeinschaft auf Facebook! Tauchen Sie tiefer ein in die Welt von Raspberry Pi, Arduino und ESP32 mit anderen Enthusiasten.
 
-    **Why Join?**
+    **Warum beitreten?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Expertenunterstützung**: Lösen Sie Nachverkaufsprobleme und technische Herausforderungen mit Hilfe unserer Gemeinschaft und unseres Teams.
+    - **Lernen & Teilen**: Tauschen Sie Tipps und Anleitungen aus, um Ihre Fähigkeiten zu verbessern.
+    - **Exklusive Vorschauen**: Erhalten Sie frühzeitigen Zugang zu neuen Produktankündigungen und exklusiven Einblicken.
+    - **Spezialrabatte**: Genießen Sie exklusive Rabatte auf unsere neuesten Produkte.
+    - **Festliche Aktionen und Gewinnspiele**: Nehmen Sie an Gewinnspielen und Feiertagsaktionen teil.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Sind Sie bereit, mit uns zu erkunden und zu erschaffen? Klicken Sie auf [|link_sf_facebook|] und treten Sie heute bei!
 
 FAQ
 ============
 
-OLED Screen Not Working?
---------------------------
+OLED-Bildschirm funktioniert nicht?
+-----------------------------------------------
 
-If the OLED Screen is not displaying or displaying incorrectly, you can follow these steps to troubleshoot the issue:
+Wenn der OLED-Bildschirm nicht anzeigt oder falsch anzeigt, können Sie die folgenden Schritte zur Fehlerbehebung ausführen:
 
-Check if the FPC cable of the OLED Screen is properly connected.
+Überprüfen Sie, ob das FPC-Kabel des OLED-Bildschirms ordnungsgemäß angeschlossen ist.
 
-#. Use the following command to view the program's run logs and check for error messages.
+#. Verwenden Sie den folgenden Befehl, um die Programmlogs anzuzeigen und auf Fehlermeldungen zu überprüfen.
 
     .. code-block:: shell
 
         cat /opt/pironman5/log
 
-#. Alternatively, use the following command to check if the OLED's i2c address 0x3C is recognized:
+#. Alternativ können Sie den folgenden Befehl verwenden, um zu überprüfen, ob die I2C-Adresse 0x3C des OLED erkannt wird:
     
     .. code-block:: shell
         
         sudo i2cdetect -y 1
 
-#. If the first two steps don't reveal any issues, try restarting the pironman5 service to see if that resolves the problem.
-
+#. Wenn die ersten beiden Schritte keine Probleme aufdecken, versuchen Sie, den pironman5-Dienst neu zu starten, um zu sehen, ob das Problem dadurch behoben wird.
 
     .. code-block:: shell
 
@@ -43,31 +42,30 @@ Check if the FPC cable of the OLED Screen is properly connected.
 
 .. _openssh_powershell:
 
-Install OpenSSH via Powershell
------------------------------------
+OpenSSH über PowerShell installieren
+----------------------------------------
 
-When you use ``ssh <username>@<hostname>.local`` (or ``ssh <username>@<IP address>``) to connect to your Raspberry Pi, but the following error message appears.
+Wenn Sie ``ssh <Benutzername>@<hostname>.local`` (oder ``ssh <Benutzername>@<IP-Adresse>``) verwenden, um sich mit Ihrem Raspberry Pi zu verbinden, aber die folgende Fehlermeldung erscheint:
 
     .. code-block::
 
         ssh: The term 'ssh' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the
         spelling of the name, or if a path was included, verify that the path is correct and try again.
 
+bedeutet dies, dass Ihr Computersystem zu alt ist und `OpenSSH <https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse?tabs=gui>`_ nicht vorinstalliert ist. Sie müssen der folgenden Anleitung folgen, um es manuell zu installieren.
 
-It means your computer system is too old and does not have `OpenSSH <https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse?tabs=gui>`_ pre-installed, you need to follow the tutorial below to install it manually.
-
-#. Type ``powershell`` in the search box of your Windows desktop, right click on the ``Windows PowerShell``, and select ``Run as administrator`` from the menu that appears.
+#. Geben Sie ``powershell`` in das Suchfeld Ihres Windows-Desktops ein, klicken Sie mit der rechten Maustaste auf ``Windows PowerShell`` und wählen Sie im erscheinenden Menü ``Als Administrator ausführen``.
 
     .. image:: img/powershell_ssh.png
         :align: center
 
-#. Use the following command to install ``OpenSSH.Client``.
+#. Verwenden Sie den folgenden Befehl, um ``OpenSSH.Client`` zu installieren.
 
     .. code-block::
 
         Add-WindowsCapability -Online -Name OpenSSH.Client~~~~0.0.1.0
 
-#. After installation, the following output will be returned.
+#. Nach der Installation wird die folgende Ausgabe zurückgegeben.
 
     .. code-block::
 
@@ -75,13 +73,13 @@ It means your computer system is too old and does not have `OpenSSH <https://lea
         Online        : True
         RestartNeeded : False
 
-#. Verify the installation by using the following command.
+#. Überprüfen Sie die Installation mit dem folgenden Befehl.
 
     .. code-block::
 
         Get-WindowsCapability -Online | Where-Object Name -like 'OpenSSH*'
 
-#. It now tells you that ``OpenSSH.Client`` has been successfully installed.
+#. Es wird Ihnen nun angezeigt, dass ``OpenSSH.Client`` erfolgreich installiert wurde.
 
     .. code-block::
 
@@ -92,11 +90,8 @@ It means your computer system is too old and does not have `OpenSSH <https://lea
         State : NotPresent
 
     .. warning:: 
-        If the above prompt does not appear, it means that your Windows system is still too old, and you are advised to install a third-party SSH tool, like |link_putty|.
+        Wenn die obige Aufforderung nicht erscheint, bedeutet dies, dass Ihr Windows-System immer noch zu alt ist. Es wird empfohlen, ein Drittanbieter-SSH-Tool wie |link_putty| zu installieren.
 
-#. Now restart PowerShell and continue to run it as administrator. At this point you will be able to log in to your Raspberry Pi using the ``ssh`` command, where you will be prompted to enter the password you set up earlier.
+#. Starten Sie nun PowerShell neu und führen Sie es weiterhin als Administrator aus. An diesem Punkt können Sie sich mit dem Befehl ``ssh`` bei Ihrem Raspberry Pi anmelden, wobei Sie aufgefordert werden, das zuvor eingerichtete Passwort einzugeben.
 
     .. image:: img/powershell_login.png
-
-
-

@@ -1,87 +1,83 @@
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Hallo und willkommen in der SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasten-Gemeinschaft auf Facebook! Tauchen Sie tiefer ein in die Welt von Raspberry Pi, Arduino und ESP32 mit anderen Enthusiasten.
 
-    **Why Join?**
+    **Warum beitreten?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Expertenunterstützung**: Lösen Sie Nachverkaufsprobleme und technische Herausforderungen mit Hilfe unserer Gemeinschaft und unseres Teams.
+    - **Lernen & Teilen**: Tauschen Sie Tipps und Anleitungen aus, um Ihre Fähigkeiten zu verbessern.
+    - **Exklusive Vorschauen**: Erhalten Sie frühzeitigen Zugang zu neuen Produktankündigungen und exklusiven Einblicken.
+    - **Spezialrabatte**: Genießen Sie exklusive Rabatte auf unsere neuesten Produkte.
+    - **Festliche Aktionen und Gewinnspiele**: Nehmen Sie an Gewinnspielen und Feiertagsaktionen teil.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Sind Sie bereit, mit uns zu erkunden und zu erschaffen? Klicken Sie auf [|link_sf_facebook|] und treten Sie heute bei!
 
 .. _set_up_rpi:
 
-4. Setting Up Your Raspberry Pi
+4. Einrichtung Ihres Raspberry Pi
 =====================================
 
-In this chapter, you will learn how to log in to the Raspberry Pi. If you have a screen, connect it to display the Raspberry Pi desktop.
+In diesem Kapitel lernen Sie, wie Sie sich beim Raspberry Pi anmelden. Wenn Sie einen Bildschirm haben, schließen Sie ihn an, um den Desktop des Raspberry Pi anzuzeigen.
 
-If you do not have a screen, you will need to log in to the Raspberry Pi remotely. You can also use VNC Viewer to access the Raspberry Pi desktop.
+Wenn Sie keinen Bildschirm haben, müssen Sie sich remote beim Raspberry Pi anmelden. Sie können auch den VNC Viewer verwenden, um auf den Desktop des Raspberry Pi zuzugreifen.
 
 .. note::
 
-    If you are already familiar with Raspberry Pi operations, you can skip this chapter.
+    Wenn Sie bereits mit den Vorgängen des Raspberry Pi vertraut sind, können Sie dieses Kapitel überspringen.
 
+Einrichtung mit einem Bildschirm
+---------------------------------------
 
+Ein Bildschirm vereinfacht die Arbeit mit Ihrem Raspberry Pi.
 
-Setting Up with a Screen
----------------------------
-
-Having a screen simplifies the process of working with your Raspberry Pi.
-
-**Required Components**
+**Erforderliche Komponenten**
 
 * |link_pironman5|
-* Power Adapter
-* Micro SD card
-* Screen Power Adapter
-* HDMI cable
-* Screen
-* Mouse
-* Keyboard
+* Netzadapter
+* MicroSD-Karte
+* Bildschirm-Netzadapter
+* HDMI-Kabel
+* Bildschirm
+* Maus
+* Tastatur
 
-Steps:
+Schritte:
 
-#. Insert the Micro SD card with Raspberry Pi OS installed into the |link_pironman5|.
+#. Setzen Sie die MicroSD-Karte mit installiertem Raspberry Pi OS in den |link_pironman5| ein.
 
-#. Connect the Mouse and Keyboard to the |link_pironman5|.
+#. Schließen Sie Maus und Tastatur an den |link_pironman5| an.
 
-#. Use the HDMI cable to connect the screen to the |link_pironman5|'s HDMI port. Ensure the screen is plugged into a power source and turned on.
+#. Verwenden Sie das HDMI-Kabel, um den Bildschirm mit dem HDMI-Anschluss des |link_pironman5| zu verbinden. Stellen Sie sicher, dass der Bildschirm an eine Stromquelle angeschlossen und eingeschaltet ist.
 
-#. Power the |link_pironman5| using the power adapter. The Raspberry Pi OS desktop should appear on the screen after a few seconds.
+#. Versorgen Sie den |link_pironman5| mit dem Netzadapter. Der Desktop des Raspberry Pi OS sollte nach einigen Sekunden auf dem Bildschirm erscheinen.
 
     .. image:: img/bookwarm.png
         :align: center
 
-#. Now you can open the Terminal to enter commands.
+#. Jetzt können Sie das Terminal öffnen, um Befehle einzugeben.
 
-
-Setting Up Without a Screen
+Einrichtung ohne Bildschirm
 ------------------------------
 
-If you don't have a monitor, remote login is a viable option.
+Wenn Sie keinen Monitor haben, ist die Remote-Anmeldung eine praktikable Option.
 
-Using SSH, you can access the Raspberry Pi's Bash shell, which is the default Linux shell. Bash offers a command-line interface for performing various tasks.
+Mit SSH können Sie auf die Bash-Shell des Raspberry Pi zugreifen, die die standardmäßige Linux-Shell ist. Bash bietet eine Kommandozeilenoberfläche zur Durchführung verschiedener Aufgaben.
 
-For those preferring a graphical user interface (GUI), the remote desktop feature is a convenient alternative for managing files and operations.
+Für diejenigen, die eine grafische Benutzeroberfläche (GUI) bevorzugen, ist die Remote-Desktop-Funktion eine bequeme Alternative zur Verwaltung von Dateien und Vorgängen.
 
+**Erforderliche Komponenten**
 
-**Required Components**
+* |link_pironman5|
+* Netzadapter
+* MicroSD-Karte
 
-* |link_pironman5| 
-* Power Adapter
-* Micro SD card
+Schritte:
 
-Steps:
+#. Setzen Sie die MicroSD-Karte mit installiertem Raspberry Pi OS in den |link_pironman5| ein.
 
-#. Insert the Micro SD card with Raspberry Pi OS installed into the |link_pironman5|.
+#. Versorgen Sie den |link_pironman5| mit dem Netzadapter.
 
-#. Power the |link_pironman5| using the power adapter. 
-
-#. For detailed setup tutorials based on your operating system, refer to the following sections:
+#. Für detaillierte Setup-Tutorials basierend auf Ihrem Betriebssystem, lesen Sie die folgenden Abschnitte:
 
 .. toctree::
 
@@ -89,4 +85,3 @@ Steps:
     remote_windows
     remote_linux
     remote_desktop
-

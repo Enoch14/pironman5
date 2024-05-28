@@ -1,34 +1,34 @@
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Hallo und willkommen in der SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasten-Gemeinschaft auf Facebook! Tauchen Sie tiefer ein in die Welt von Raspberry Pi, Arduino und ESP32 mit anderen Enthusiasten.
 
-    **Why Join?**
+    **Warum beitreten?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Expertenunterstützung**: Lösen Sie Nachverkaufsprobleme und technische Herausforderungen mit Hilfe unserer Gemeinschaft und unseres Teams.
+    - **Lernen & Teilen**: Tauschen Sie Tipps und Anleitungen aus, um Ihre Fähigkeiten zu verbessern.
+    - **Exklusive Vorschauen**: Erhalten Sie frühzeitigen Zugang zu neuen Produktankündigungen und exklusiven Einblicken.
+    - **Spezialrabatte**: Genießen Sie exklusive Rabatte auf unsere neuesten Produkte.
+    - **Festliche Aktionen und Gewinnspiele**: Nehmen Sie an Gewinnspielen und Feiertagsaktionen teil.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Sind Sie bereit, mit uns zu erkunden und zu erschaffen? Klicken Sie auf [|link_sf_facebook|] und treten Sie heute bei!
 
-3. Installing the Operating System
+3. Installation des Betriebssystems
 =======================================
 
-In this chapter, you will learn how to install the operating system.
+In diesem Kapitel lernen Sie, wie Sie das Betriebssystem installieren.
 
 .. note::
 
-    You need to install an OS that supports Raspberry Pi 5. Please use the latest Raspberry Pi Imager tool for system installation. The currently tested systems are:
+    Sie müssen ein Betriebssystem installieren, das den Raspberry Pi 5 unterstützt. Bitte verwenden Sie das neueste Raspberry Pi Imager-Tool für die Systeminstallation. Die derzeit getesteten Systeme sind:
 
-    * **Raspberry Pi OS (bookworm 64 desktop / lite)**: Perfectly compatible
-    * **Ubuntu Desktop 23.10**: No SPI, causing LED to not light up
-    * **Kali**: No I2C, causing OLED screen to not light up
-    * **Home Assistant**: Cannot enable I2C and SPI
+    * **Raspberry Pi OS (bookworm 64 desktop / lite)**: Vollständig kompatibel
+    * **Ubuntu Desktop 23.10**: Kein SPI, wodurch die LED nicht leuchtet
+    * **Kali**: Kein I2C, wodurch der OLED-Bildschirm nicht leuchtet
+    * **Home Assistant**: Kann I2C und SPI nicht aktivieren
 
-**1. Installing the OS to Micro SD Card**
+**1. Installation des Betriebssystems auf die MicroSD-Karte**
 
-If you are using a Micro SD card, you can follow the tutorial below to install the system onto your Micro SD card.
+Wenn Sie eine MicroSD-Karte verwenden, können Sie dem folgenden Tutorial folgen, um das System auf Ihrer MicroSD-Karte zu installieren.
 
 .. toctree::
     :maxdepth: 1
@@ -36,30 +36,29 @@ If you are using a Micro SD card, you can follow the tutorial below to install t
     install_to_sd
 
 
-**2. Installing the OS to NVMe SSD**
+**2. Installation des Betriebssystems auf die NVMe-SSD**
 
-If you are using an NVMe SSD and have an adapter to connect the NVMe SSD to your computer for system installation, you can use the following tutorial for a quick installation.
+Wenn Sie eine NVMe-SSD verwenden und einen Adapter haben, um die NVMe-SSD für die Systeminstallation an Ihren Computer anzuschließen, können Sie das folgende Tutorial für eine schnelle Installation verwenden.
 
 .. toctree::
     :maxdepth: 1
 
     install_to_nvme
 
-**3. Copy the OS from the Micro SD card to the NVMe SSD**
+**3. Kopieren des Betriebssystems von der MicroSD-Karte auf die NVMe-SSD**
 
-If you have an NVMe SSD but do not have an adapter to connect your NVMe to your computer, you can first install the system on your Micro SD card. Once the |link_pironman5| boots up successfully, you can copy the system from your Micro SD card to your NVMe SSD. Detailed instructions are as follows:
+Wenn Sie eine NVMe-SSD haben, aber keinen Adapter, um Ihre NVMe-SSD an Ihren Computer anzuschließen, können Sie zunächst das System auf Ihrer MicroSD-Karte installieren. Sobald der |link_pironman5| erfolgreich hochgefahren ist, können Sie das System von Ihrer MicroSD-Karte auf Ihre NVMe-SSD kopieren. Detaillierte Anweisungen sind wie folgt:
 
-You will need to follow these steps:
+Sie müssen diese Schritte befolgen:
 
-1. Install the system on your Micro SD card.
+1. Installieren Sie das System auf Ihrer MicroSD-Karte.
 
 * :ref:`install_os_sd`
 
-2. Boot up and log in to the Raspberry Pi.
+2. Starten Sie den Raspberry Pi und melden Sie sich an.
 
 * :ref:`set_up_rpi`
 
-3. Set up booting from the NVMe SSD, then copy the system from the Micro SD card to the NVMe SSD, or use the Imager in the Raspberry Pi system to install the system directly to the NVMe SSD.
+3. Richten Sie das Booten von der NVMe-SSD ein und kopieren Sie dann das System von der MicroSD-Karte auf die NVMe-SSD, oder verwenden Sie den Imager im Raspberry Pi-System, um das System direkt auf die NVMe-SSD zu installieren.
 
 * :ref:`boot_from_ssd`
-

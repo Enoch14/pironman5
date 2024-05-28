@@ -1,43 +1,43 @@
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Hallo und willkommen in der SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasten-Gemeinschaft auf Facebook! Tauchen Sie tiefer ein in die Welt von Raspberry Pi, Arduino und ESP32 mit anderen Enthusiasten.
 
-    **Why Join?**
+    **Warum beitreten?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Expertenunterstützung**: Lösen Sie Nachverkaufsprobleme und technische Herausforderungen mit Hilfe unserer Gemeinschaft und unseres Teams.
+    - **Lernen & Teilen**: Tauschen Sie Tipps und Anleitungen aus, um Ihre Fähigkeiten zu verbessern.
+    - **Exklusive Vorschauen**: Erhalten Sie frühzeitigen Zugang zu neuen Produktankündigungen und exklusiven Einblicken.
+    - **Spezialrabatte**: Genießen Sie exklusive Rabatte auf unsere neuesten Produkte.
+    - **Festliche Aktionen und Gewinnspiele**: Nehmen Sie an Gewinnspielen und Feiertagsaktionen teil.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Sind Sie bereit, mit uns zu erkunden und zu erschaffen? Klicken Sie auf [|link_sf_facebook|] und treten Sie heute bei!
 
-USB HDMI Adapter
+USB-HDMI-Adapter
 ==========================================
 
 .. image:: img/hdmi_adapter.jpeg
 
-This USB HDMI adapter board is specifically designed for the Raspberry Pi 5. Its primary function is to reposition the USB and HDMI connections to align with the USB interface side of the Raspberry Pi, enhancing accessibility and cable management.
+Dieses USB-HDMI-Adapterboard ist speziell für den Raspberry Pi 5 entwickelt worden. Seine Hauptfunktion besteht darin, die USB- und HDMI-Anschlüsse neu zu positionieren, um sie mit der USB-Schnittstellenseite des Raspberry Pi in Einklang zu bringen und so die Zugänglichkeit und das Kabelmanagement zu verbessern.
 
-Additionally, the HDMI port is converted to a standard HDMI Type A interface, offering broader compatibility.
+Zusätzlich wird der HDMI-Anschluss in eine Standard-HDMI-Typ-A-Schnittstelle umgewandelt, was eine breitere Kompatibilität bietet.
 
-**NVMe Additional Power Supply**
+**Zusätzliche Stromversorgung für NVMe**
 
-The board features a 5V power header specifically for NVMe PIP power supply. Coupled with an extension header, it can be connected to the NVMe's additional power interface to provide extra power.
+Das Board verfügt über einen 5V-Stromanschluss speziell für die NVMe-PIP-Stromversorgung. Zusammen mit einem Erweiterungsstecker kann es an die zusätzliche Stromschnittstelle des NVMe angeschlossen werden, um zusätzliche Energie zu liefern.
 
-**1220RTC Battery Holder**
+**1220RTC Batteriehalter**
 
-A 1220RTC battery holder is incorporated for convenient installation of an RTC battery. It connects to the Raspberry Pi's RTC interface via an SH1.0 2P reverse cable. 
+Ein 1220RTC-Batteriehalter ist für die bequeme Installation einer RTC-Batterie integriert. Er wird über ein umgekehrtes SH1.0 2P-Kabel mit der RTC-Schnittstelle des Raspberry Pi verbunden.
 
-The battery holder is compatible with both CR1220 and ML1220 batteries. If using an ML1220 (Lithium Manganese Dioxide battery), charging can be configured directly on the Raspberry Pi. Note that the CR1220 is not rechargeable.
+Der Batteriehalter ist sowohl mit CR1220- als auch mit ML1220-Batterien kompatibel. Wenn Sie eine ML1220-Batterie (Lithium-Mangan-Dioxid-Batterie) verwenden, kann das Aufladen direkt am Raspberry Pi konfiguriert werden. Beachten Sie, dass die CR1220 nicht wiederaufladbar ist.
 
-**Enabling Trickle Charging**
+**Aktivierung des Trickle-Charging**
 
 .. warning::
 
-  If you're using a CR1220 battery, do not enable trickle charging as it can cause irreparable damage to the battery and risk damaging the board.
+  Wenn Sie eine CR1220-Batterie verwenden, aktivieren Sie das Trickle-Charging nicht, da dies die Batterie irreparabel beschädigen und die Platine gefährden kann.
 
-By default, the trickle charging feature for the battery is disabled. The ``sysfs`` files indicate the current trickle charging voltage and limits:
+Standardmäßig ist die Trickle-Charging-Funktion für die Batterie deaktiviert. Die ``sysfs``-Dateien zeigen die aktuelle Trickle-Charging-Spannung und -Grenzen an:
 
 .. code-block:: shell
 
@@ -48,21 +48,21 @@ By default, the trickle charging feature for the battery is disabled. The ``sysf
     pi@raspberrypi:~ $ cat /sys/devices/platform/soc/soc:rpi_rtc/rtc/rtc0/charging_voltage_min
     1300000
 
-To enable trickle charging, add ``rtc_bbat_vchg`` to ``/boot/firmware/config.txt``:
+Um das Trickle-Charging zu aktivieren, fügen Sie ``rtc_bbat_vchg`` zu ``/boot/firmware/config.txt`` hinzu:
 
-  * Open the ``/boot/firmware/config.txt``.
+  * Öffnen Sie die Datei ``/boot/firmware/config.txt``.
   
     .. code-block:: shell
     
       sudo nano /boot/firmware/config.txt
       
-  * Add ``rtc_bbat_vchg`` to ``/boot/firmware/config.txt``.
+  * Fügen Sie ``rtc_bbat_vchg`` zu ``/boot/firmware/config.txt`` hinzu.
   
     .. code-block:: shell
     
       dtparam=rtc_bbat_vchg=3000000
   
-After rebooting, the system will display:
+Nach dem Neustart zeigt das System Folgendes an:
 
 .. code-block:: shell
 
@@ -73,5 +73,4 @@ After rebooting, the system will display:
     pi@raspberrypi:~ $ cat /sys/devices/platform/soc/soc:rpi_rtc/rtc/rtc0/charging_voltage_min
     1300000
 
-This confirms the battery is now under trickle charging. To disable this feature, simply remove the ``dtparam`` line from ``config.txt``.
-
+Dies bestätigt, dass die Batterie nun im Trickle-Charging-Modus ist. Um diese Funktion zu deaktivieren, entfernen Sie einfach die ``dtparam``-Zeile aus der ``config.txt``.

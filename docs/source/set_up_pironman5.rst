@@ -1,54 +1,54 @@
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Hallo und willkommen in der SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasten-Gemeinschaft auf Facebook! Tauchen Sie tiefer ein in die Welt von Raspberry Pi, Arduino und ESP32 mit anderen Enthusiasten.
 
-    **Why Join?**
+    **Warum beitreten?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Expertenunterstützung**: Lösen Sie Nachverkaufsprobleme und technische Herausforderungen mit Hilfe unserer Gemeinschaft und unseres Teams.
+    - **Lernen & Teilen**: Tauschen Sie Tipps und Anleitungen aus, um Ihre Fähigkeiten zu verbessern.
+    - **Exklusive Vorschauen**: Erhalten Sie frühzeitigen Zugang zu neuen Produktankündigungen und exklusiven Einblicken.
+    - **Spezialrabatte**: Genießen Sie exklusive Rabatte auf unsere neuesten Produkte.
+    - **Festliche Aktionen und Gewinnspiele**: Nehmen Sie an Gewinnspielen und Feiertagsaktionen teil.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Sind Sie bereit, mit uns zu erkunden und zu erschaffen? Klicken Sie auf [|link_sf_facebook|] und treten Sie heute bei!
 
 .. _set_up_pironman5:
 
-5. Set up Pironman 5
+5. Einrichtung des Pironman 5
 ===================================
 
-Before Configuration
------------------------
-After powering on, you will only see the various power LEDs lit up, but the OLED screen (if there is a screen garbling issue, please ignore it as it will resolve after configuration), RGB LEDs, and RGB fans (the two fans on the side) are not yet functional because they have not been configured.
+Vor der Konfiguration
+--------------------------
+Nach dem Einschalten sehen Sie nur die verschiedenen Power-LEDs leuchten, aber der OLED-Bildschirm (bei einem Anzeigeproblem ignorieren Sie es bitte, da es sich nach der Konfiguration löst), die RGB-LEDs und die RGB-Lüfter (die beiden Lüfter an den Seiten) funktionieren noch nicht, da sie noch nicht konfiguriert wurden.
 
-The power button brings out the power button of the Raspberry Pi 5, and it functions just like the power button of the Raspberry Pi 5.
+Der Power-Button fungiert wie der Power-Button des Raspberry Pi 5 und funktioniert genauso.
 
-**Shutdown**
+**Herunterfahren**
 
-    * If you run Raspberry Pi **Bookworm Desktop** system, you can press the power button twice in quick succession to shutdown. 
-    * If you run Raspberry Pi **Bookworm Lite** system, press the power button a single time to initiate a shutdown.
-    * To force a hard shutdown, press and hold the power button.
+    * Wenn Sie das Raspberry Pi **Bookworm Desktop**-System verwenden, können Sie den Power-Button zweimal schnell hintereinander drücken, um das Gerät herunterzufahren.
+    * Wenn Sie das Raspberry Pi **Bookworm Lite**-System verwenden, drücken Sie den Power-Button einmal, um das Herunterfahren zu starten.
+    * Um ein erzwungenes Herunterfahren durchzuführen, halten Sie den Power-Button gedrückt.
 
-**Power on**
+**Einschalten**
 
-    * If the Raspberry Pi board is shut down, but still powered, single-press to power on from a shutdown state.
+    * Wenn das Raspberry Pi Board heruntergefahren, aber noch mit Strom versorgt ist, drücken Sie einmal, um es aus dem Heruntergefahren-Zustand einzuschalten.
 
 .. note::
 
-    If you are running a system that does not support a shutdown button, you can hold it for 5 seconds to force a hard shutdown, and single-press to power on from a shutdown state.
+    Wenn Sie ein System verwenden, das keinen Shutdown-Button unterstützt, können Sie ihn 5 Sekunden lang gedrückt halten, um ein erzwungenes Herunterfahren durchzuführen, und einmal drücken, um aus dem Heruntergefahren-Zustand einzuschalten.
 
 
-Configuring Shutdown to Deactivate GPIO Power
-------------------------------------------------------------
-To prevent the OLED screen and RGB fans, powered by the Raspberry Pi GPIO, from remaining active post-shutdown, it's essential to configure the Raspberry Pi for GPIO power deactivation.
+Konfiguration des Herunterfahrens zur Deaktivierung der GPIO-Stromversorgung
+-------------------------------------------------------------------------------------
+Um zu verhindern, dass der OLED-Bildschirm und die RGB-Lüfter, die über den Raspberry Pi GPIO mit Strom versorgt werden, nach dem Herunterfahren aktiv bleiben, ist es wichtig, den Raspberry Pi so zu konfigurieren, dass die GPIO-Stromversorgung deaktiviert wird.
 
-* Manually edit the ``EEPROM`` configuration file with this command:
+* Bearbeiten Sie die ``EEPROM``-Konfigurationsdatei manuell mit diesem Befehl:
 
   .. code-block:: shell
 
     sudo rpi-eeprom-config -e
 
-* Modify the ``POWER_OFF_ON_HALT`` setting in the file to ``1``. For instance:
+* Ändern Sie die Einstellung ``POWER_OFF_ON_HALT`` in der Datei auf ``1``. Zum Beispiel:
 
   .. code-block:: shell
 
@@ -57,12 +57,12 @@ To prevent the OLED screen and RGB fans, powered by the Raspberry Pi GPIO, from 
     BOOT_ORDER=0xf41
 
 
-Downloading and Installing the ``pironman5`` Module
------------------------------------------------------------
+Herunterladen und Installieren des ``pironman5`` Moduls
+-------------------------------------------------------------
 
 .. note::
 
-  For lite systems, initially install tools like ``git``, ``python3``, ``pip3``, ``setuptools``, etc.
+  Für Lite-Systeme installieren Sie zunächst Werkzeuge wie ``git``, ``python3``, ``pip3``, ``setuptools`` usw.
   
   .. code-block:: shell
   
@@ -70,7 +70,7 @@ Downloading and Installing the ``pironman5`` Module
     sudo apt-get install git -y
     sudo apt-get install python3 python3-pip python3-setuptools -y
 
-Proceed to download code from GitHub and install the ``pironman5`` module .
+Laden Sie den Code von GitHub herunter und installieren Sie das ``pironman5``-Modul.
 
 .. code-block:: shell
 
@@ -79,27 +79,25 @@ Proceed to download code from GitHub and install the ``pironman5`` module .
   cd ~/pironman5
   sudo python3 install.py
 
-After successful installation, a system reboot is required to activate the installation. Follow the on-screen reboot prompt.
+Nach erfolgreicher Installation ist ein Systemneustart erforderlich, um die Installation zu aktivieren. Befolgen Sie die Neustartaufforderung auf dem Bildschirm.
 
-Upon reboot, the ``pironman5.service`` will start automatically. Here are the primary configurations for |link_pironman5|:
+Nach dem Neustart startet der ``pironman5.service`` automatisch. Hier sind die Hauptkonfigurationen für |link_pironman5|:
 
-  * The OLED screen displays CPU, RAM, Disk Usage, CPU Temperature, and the Raspberry Pi's IP Address.
-  * Four WS2812 RGB LEDs will light up in blue with a breathing mode.
+  * Der OLED-Bildschirm zeigt CPU, RAM, Speichernutzung, CPU-Temperatur und die IP-Adresse des Raspberry Pi an.
+  * Vier WS2812-RGB-LEDs leuchten in Blau im Atemmodus.
   * 
 
-You can use the ``systemctl`` tool to ``start``, ``stop``, ``restart``, or check the ``status`` of ``pironman5.service``.
+Sie können das ``systemctl``-Tool verwenden, um ``pironman5.service`` zu ``starten``, ``stoppen``, ``neu zu starten`` oder den ``Status`` zu überprüfen.
 
 .. code-block:: shell
 
   sudo systemctl restart pironman5.service
 
-* ``restart``: Use this command to apply any changes made to the settings of pironman 5.
-* ``start/stop``: Enable or disable the ``pironman5.service``.
-* ``status``: Check the operational status of the ``pironman5`` program using the ``systemctl`` tool.
+* ``restart``: Verwenden Sie diesen Befehl, um Änderungen an den Einstellungen des Pironman 5 anzuwenden.
+* ``start/stop``: Aktivieren oder deaktivieren Sie den ``pironman5.service``.
+* ``status``: Überprüfen Sie den Betriebsstatus des ``pironman5``-Programms mit dem ``systemctl``-Tool.
 
 .. note::
 
-  * Next, you can view and control the components of |link_pironman5| from dashboard, please refer to :ref:`view_control_dashboard`.
-  * If you wish to use commands, please see :ref:`view_control_commands`.
-
-
+  * Als nächstes können Sie die Komponenten des |link_pironman5| über das Dashboard anzeigen und steuern, siehe :ref:`view_control_dashboard`.
+  * Wenn Sie Befehle verwenden möchten, siehe :ref:`view_control_commands`.
