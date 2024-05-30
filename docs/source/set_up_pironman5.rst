@@ -56,6 +56,8 @@ Raspberry PiのGPIOで電源供給されるOLED画面やRGBファンがシャッ
     POWER_OFF_ON_HALT=1
     BOOT_ORDER=0xf41
 
+* 変更を保存するには、「Ctrl + X」、「Y」、「Enter」を押します。
+
 
 ``pironman5`` モジュールのダウンロードとインストール
 -----------------------------------------------------------
@@ -95,6 +97,86 @@ GitHubからコードをダウンロードし、 ``pironman5`` モジュール�
 * ``restart``: Pironman 5の設定変更を適用するために使用します。
 * ``start/stop``: ``pironman5.service`` を有効または無効にします。
 * ``status``: ``systemctl`` ツールを使用して ``pironman5`` プログラムの動作状態を確認します。
+
+基本設定の表示
+-----------------------------------
+
+``pironman5`` モジュールはPironmanの基本設定を提供し、以下のコマンドで確認できます。
+
+.. code-block:: shell
+
+  pironman5 -c
+
+標準的な設定は以下の通りです：
+
+.. code-block:: 
+
+  {
+      "auto": {
+          "rgb_color": "#0a1aff",
+          "rgb_brightness": 50,
+          "rgb_style": "breathing",
+          "rgb_speed": 50,
+          "rgb_enable": true,
+          "rgb_led_count": 4,
+          "temperature_unit": "C",
+          "gpio_fan_mode": 2,
+          "gpio_fan_pin": 6
+      }
+  }
+
+これらの設定を必要に応じてカスタマイズしてください。
+
+使い方については、 ``pironman5`` または ``pironman5 -h`` を使用してください。
+
+.. code-block::
+
+  usage: pironman5-service [-h] [-c] [-rc [RGB_COLOR]] [-rb [RGB_BRIGHTNESS]]
+                          [-rs [{solid,breathing,flow,flow_reverse,rainbow,rainbow_reverse,hue_cycle}]] [-rp [RGB_SPEED]]
+                          [-re [RGB_ENABLE]] [-rl [RGB_LED_COUNT]] [-u [{C,F}]] [-gm [GPIO_FAN_MODE]] [-gp [GPIO_FAN_PIN]]
+                          [{start,stop}]
+
+  Pironman5
+
+  positional arguments:
+    {start,stop}          Command
+
+  options:
+    -h, --help            show this help message and exit
+    -c, --config          Show config
+    -rc [RGB_COLOR], --rgb-color [RGB_COLOR]
+                          RGB color in hex format with or without # (e.g. #FF0000 or 00aabb)
+    -rb [RGB_BRIGHTNESS], --rgb-brightness [RGB_BRIGHTNESS]
+                          RGB brightness 0-100
+    -rs [{solid,breathing,flow,flow_reverse,rainbow,rainbow_reverse,hue_cycle}], --rgb-style [{solid,breathing,flow,flow_reverse,rainbow,rainbow_reverse,hue_cycle}]
+                          RGB style
+    -rp [RGB_SPEED], --rgb-speed [RGB_SPEED]
+                          RGB speed 0-100
+    -re [RGB_ENABLE], --rgb-enable [RGB_ENABLE]
+                          RGB enable True/False
+    -rl [RGB_LED_COUNT], --rgb-led-count [RGB_LED_COUNT]
+                          RGB LED count int
+    -u [{C,F}], --temperature-unit [{C,F}]
+                          Temperature unit
+    -gm [GPIO_FAN_MODE], --gpio-fan-mode [GPIO_FAN_MODE]
+                          GPIO fan mode, 0: Always On, 1: Performance, 2: Cool, 3: Balanced, 4: Quiet
+    -gp [GPIO_FAN_PIN], --gpio-fan-pin [GPIO_FAN_PIN]
+                          GPIO fan pin
+
+.. note::
+
+  ``pironman5.service`` の状態を変更するたびに、以下のコマンドを使用して設定変更を有効にする必要があります。
+
+  .. code-block:: shell
+
+    sudo systemctl restart pironman5.service
+
+
+* または、プログラムが生成したログファイルを調査します。
+
+  .. code-block:: shell
+
+    cat /opt/pironman5/log
 
 .. note::
 
