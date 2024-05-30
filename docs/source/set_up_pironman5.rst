@@ -56,7 +56,7 @@ Um zu verhindern, dass der OLED-Bildschirm und die RGB-Lüfter, die über den Ra
     POWER_OFF_ON_HALT=1
     BOOT_ORDER=0xf41
 
-* Press ``Ctrl + X``, ``Y`` and ``Enter`` to save the changes.
+* Drücken Sie ``Ctrl + X``, ``Y`` und ``Enter``, um die Änderungen zu speichern.
 
 
 Herunterladen und Installieren des ``pironman5`` Moduls
@@ -87,6 +87,7 @@ Nach dem Neustart startet der ``pironman5.service`` automatisch. Hier sind die H
 
   * Der OLED-Bildschirm zeigt CPU, RAM, Speichernutzung, CPU-Temperatur und die IP-Adresse des Raspberry Pi an.
   * Vier WS2812-RGB-LEDs leuchten in Blau im Atemmodus.
+  * Die RGB-Lüfter aktivieren sich bei 60°C.
 
 Sie können das ``systemctl``-Tool verwenden, um ``pironman5.service`` zu ``starten``, ``stoppen``, ``neu zu starten`` oder den ``Status`` zu überprüfen.
 
@@ -98,17 +99,16 @@ Sie können das ``systemctl``-Tool verwenden, um ``pironman5.service`` zu ``star
 * ``start/stop``: Aktivieren oder deaktivieren Sie den ``pironman5.service``.
 * ``status``: Überprüfen Sie den Betriebsstatus des ``pironman5``-Programms mit dem ``systemctl``-Tool.
 
-
-View the Basic Configurations
+Grundkonfigurationen anzeigen
 -----------------------------------
 
-The ``pironman5`` module offers basic configurations for Pironman, which you can review with the following command.
+Das Modul ``pironman5`` bietet Grundkonfigurationen für den Pironman, die Sie mit dem folgenden Befehl überprüfen können.
 
 .. code-block:: shell
 
   pironman5 -c
 
-The standard configurations appear as follows:
+Die Standardkonfigurationen erscheinen wie folgt:
 
 .. code-block:: 
 
@@ -126,9 +126,9 @@ The standard configurations appear as follows:
       }
   }
 
-Customize these configurations to fit your needs.
+Passen Sie diese Konfigurationen Ihren Bedürfnissen an.
 
-Use ``pironman5`` or ``pironman5 -h`` for instructions.
+Verwenden Sie ``pironman5`` oder ``pironman5 -h`` für Anweisungen.
 
 .. code-block::
 
@@ -166,13 +166,13 @@ Use ``pironman5`` or ``pironman5 -h`` for instructions.
 
 .. note::
 
-  Each time you modify the status of ``pironman5.service``, you need to use the following command to make the configuration changes take effect.
+  Jedes Mal, wenn Sie den Status von ``pironman5.service`` ändern, müssen Sie den folgenden Befehl verwenden, um die Konfigurationsänderungen wirksam zu machen.
 
   .. code-block:: shell
 
     sudo systemctl restart pironman5.service
 
-* Alternatively, inspect the program-generated log files.
+* Alternativ können Sie die vom Programm generierten Logdateien überprüfen.
 
   .. code-block:: shell
 
@@ -180,10 +180,5 @@ Use ``pironman5`` or ``pironman5 -h`` for instructions.
 
 .. note::
 
-<<<<<<< HEAD
   * Als nächstes können Sie die Komponenten des |link_pironman5| über das Dashboard anzeigen und steuern, siehe :ref:`view_control_dashboard`.
   * Wenn Sie Befehle verwenden möchten, siehe :ref:`view_control_commands`.
-=======
-  * Next, you can view and control the components of |link_pironman5| from dashboard, please refer to :ref:`view_control_dashboard`.
-  * If you wish to use commands, please see :ref:`view_control_commands`.
->>>>>>> bee3badd7d521802059fd7f5755c629e0d35f0cc
