@@ -10,7 +10,7 @@
     - **Special Discounts**: Enjoy exclusive discounts on our newest products.
     - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+   
 
 1. What Else Should We Prepare?
 ===================================
